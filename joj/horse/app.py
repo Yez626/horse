@@ -23,6 +23,7 @@ from joj.horse.utils.exception_handlers import register_exception_handlers
 from joj.horse.utils.fastapi.router import simplify_operation_ids
 from joj.horse.utils.fastapi.version import VersionedFastAPI
 from joj.horse.utils.logger import init_logging  # noqa: F401
+from joj.horse.utils.sqladmin import register_admin_models
 from joj.horse.utils.url import get_base_url
 from joj.horse.utils.version import get_git_version, get_version
 
@@ -45,6 +46,7 @@ app = VersionedFastAPI(
     prefix_format="/api/v{major}",
 )
 admin = Admin(app, get_db_engine())
+register_admin_models(admin)
 
 
 # we temporarily redirect "/" and "/api" to "/api/v1" for debugging
