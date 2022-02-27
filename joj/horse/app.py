@@ -7,6 +7,7 @@ from lakefs_client.exceptions import ApiException as LakeFSApiException
 from loguru import logger
 from pydantic_universal_settings import init_settings
 from rollbar.contrib.fastapi import ReporterMiddleware as RollbarMiddleware
+from sqladmin import Admin
 from starlette.responses import RedirectResponse
 from starlette_context import plugins
 from starlette_context.middleware import RawContextMiddleware
@@ -16,7 +17,7 @@ import joj.horse.models  # noqa: F401
 import joj.horse.utils.monkey_patch  # noqa: F401
 from joj.horse.config import AllSettings
 from joj.horse.schemas.cache import try_init_cache
-from joj.horse.services.db import db_session_dependency, try_init_db
+from joj.horse.services.db import db_session_dependency, get_db_engine, try_init_db
 from joj.horse.services.lakefs import try_init_lakefs
 from joj.horse.utils.exception_handlers import register_exception_handlers
 from joj.horse.utils.fastapi.router import simplify_operation_ids
@@ -35,6 +36,7 @@ app = FastAPI(
     swagger_ui_parameters={"docExpansion": "none"},
 )
 init_logging()
+admin = Admin(app, get_db_engine())
 
 import joj.horse.apis  # noqa: F401
 

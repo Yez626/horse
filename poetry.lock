@@ -2,7 +2,7 @@
 test = ["asgi-lifespan", "asynctest", "coverage", "pytest", "pytest-asyncio", "pytest-cov", "pytest-depends", "pytest-lazy-fixture"]
 
 [metadata]
-content-hash = "55f70d909fdc28ecb48910096dbdc9af31db886a25f8c1db1b516fd5b600b2a6"
+content-hash = "780cfb2c612968d7e109d2edea819e85dc41fdd90936314e0c039f1d85d13a77"
 lock-version = "1.1"
 python-versions = "^3.8"
 
@@ -883,6 +883,10 @@ sniffio = [
     {file = "sniffio-1.2.0-py3-none-any.whl", hash = "sha256:471b71698eac1c2112a40ce2752bb2f4a4814c22a54a3eed3676bc0f5ca9f663"},
     {file = "sniffio-1.2.0.tar.gz", hash = "sha256:c4666eecec1d3f50960c6bdf61ab7bc350648da6c126e3cf6898d8cd4ddcd3de"},
 ]
+sqladmin = [
+    {file = "sqladmin-0.1.5-py3-none-any.whl", hash = "sha256:4248b06f47238fb86aa04315beac2ba105bf7258edc128794a344f70b42b18b5"},
+    {file = "sqladmin-0.1.5.tar.gz", hash = "sha256:fd7cbb2baec7aba47d7cec1d8715308bedebce629fed7c75a59f0ae65c1a4957"},
+]
 sqlalchemy = [
     {file = "SQLAlchemy-1.4.31-cp27-cp27m-macosx_10_14_x86_64.whl", hash = "sha256:c3abc34fed19fdeaead0ced8cf56dd121f08198008c033596aa6aae7cc58f59f"},
     {file = "SQLAlchemy-1.4.31-cp27-cp27m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:8d0949b11681380b4a50ac3cd075e4816afe9fa4a8c8ae006c1ca26f0fa40ad8"},
@@ -1151,6 +1155,10 @@ wrapt = [
     {file = "wrapt-1.13.3-cp39-cp39-win32.whl", hash = "sha256:0a017a667d1f7411816e4bf214646d0ad5b1da2c1ea13dec6c162736ff25a374"},
     {file = "wrapt-1.13.3-cp39-cp39-win_amd64.whl", hash = "sha256:81bd7c90d28a4b2e1df135bfbd7c23aee3050078ca6441bead44c42483f9ebfb"},
     {file = "wrapt-1.13.3.tar.gz", hash = "sha256:1fea9cd438686e6682271d36f3481a9f3636195578bab9ca3382e2f5f01fc185"},
+]
+wtforms = [
+    {file = "WTForms-3.0.1-py3-none-any.whl", hash = "sha256:837f2f0e0ca79481b92884962b914eba4e72b7a2daaf1f939c890ed0124b834b"},
+    {file = "WTForms-3.0.1.tar.gz", hash = "sha256:6b351bbb12dd58af57ffef05bc78425d08d1914e0fd68ee14143b7ade023c5bc"},
 ]
 zipp = [
     {file = "zipp-3.7.0-py3-none-any.whl", hash = "sha256:b47250dd24f92b7dd6a0a8fc5244da14608f3ca90a5efcd37a3b1642fac9a375"},
@@ -2617,6 +2625,21 @@ version = "1.2.0"
 
 [[package]]
 category = "main"
+description = "Admin interface for SQLAlchemy."
+name = "sqladmin"
+optional = false
+python-versions = ">=3.7"
+version = "0.1.5"
+
+[package.dependencies]
+jinja2 = "*"
+python-multipart = "*"
+sqlalchemy = ">=1.4,<1.5"
+starlette = "*"
+wtforms = ">=3,<4"
+
+[[package]]
+category = "main"
 description = "Database Abstraction Library"
 name = "sqlalchemy"
 optional = false
@@ -2882,6 +2905,20 @@ name = "wrapt"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 version = "1.13.3"
+
+[[package]]
+category = "main"
+description = "Form validation and rendering for Python web development."
+name = "wtforms"
+optional = false
+python-versions = ">=3.7"
+version = "3.0.1"
+
+[package.dependencies]
+MarkupSafe = "*"
+
+[package.extras]
+email = ["email-validator"]
 
 [[package]]
 category = "main"
