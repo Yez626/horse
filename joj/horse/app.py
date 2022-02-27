@@ -39,12 +39,12 @@ init_logging()
 
 import joj.horse.apis  # noqa: F401
 
-admin = Admin(app, get_db_engine())
 app = VersionedFastAPI(
     app,
     version_format="{major}",
     prefix_format="/api/v{major}",
 )
+admin = Admin(app, get_db_engine())
 
 
 # we temporarily redirect "/" and "/api" to "/api/v1" for debugging
